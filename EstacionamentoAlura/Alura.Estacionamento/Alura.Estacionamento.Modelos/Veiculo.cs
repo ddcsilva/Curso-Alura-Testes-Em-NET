@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Alura.Estacionamento.Alura.Estacionamento.Modelos;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
-namespace EstacionamentoAlura.App.Modelos
+namespace Alura.Estacionamento.Modelos
 {
     public class Veiculo
     {
@@ -24,7 +27,6 @@ namespace EstacionamentoAlura.App.Modelos
                 {
                     throw new FormatException(" A placa deve possuir 8 caracteres");
                 }
-
                 for (int i = 0; i < 3; i++)
                 {
                     //checa se os 3 primeiros caracteres são numeros
@@ -33,13 +35,11 @@ namespace EstacionamentoAlura.App.Modelos
                         throw new FormatException("Os 3 primeiros caracteres devem ser letras!");
                     }
                 }
-
                 //checa o Hifem
                 if (value[3] != '-')
                 {
                     throw new FormatException("O 4° caractere deve ser um hífen");
                 }
-
                 //checa se os 3 primeiros caracteres são numeros
                 for (int i = 4; i < 8; i++)
                 {
@@ -48,12 +48,10 @@ namespace EstacionamentoAlura.App.Modelos
                         throw new FormatException("Do 5º ao 8º caractere deve-se ter um número!");
                     }
                 }
-
                 _placa = value;
 
             }
         }
-
         /// <summary>
         /// { get; set; } cria uma propriedade automática, ou seja,
         /// durante a compilação, é gerado um atributo para armazenar
@@ -96,5 +94,7 @@ namespace EstacionamentoAlura.App.Modelos
         {
            Proprietario = proprietario;
         }
+
+       
     }
 }

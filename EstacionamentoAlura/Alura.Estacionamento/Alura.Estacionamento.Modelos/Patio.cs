@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Alura.Estacionamento.Alura.Estacionamento.Modelos;
+using Alura.Estacionamento.Modelos;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EstacionamentoAlura.App.Modelos
+namespace Alura.Estacionamento.Modelos
 {
     public class Patio
     {
@@ -11,12 +16,10 @@ namespace EstacionamentoAlura.App.Modelos
             Faturado = 0;
             veiculos = new List<Veiculo>();
         }
-
         private List<Veiculo> veiculos;
         private double faturado;
         public double Faturado { get => faturado; set => faturado = value; }
-        public List<Veiculo> Veiculos { get => veiculos; set => veiculos = value; }     
-        
+        public List<Veiculo> Veiculos { get => veiculos; set => veiculos = value; }       
         public double TotalFaturado()
         {
             return this.Faturado;
@@ -52,6 +55,7 @@ namespace EstacionamentoAlura.App.Modelos
                         /// Ex.: 0,9999 ou 0,0001 teto = 1
                         /// Obs.: o conceito de chão é inverso e podemos utilizar Math.Floor();
                         valorASerCobrado = Math.Ceiling(tempoPermanencia.TotalHours) * 2;
+
                     }
                     if (v.Tipo == TipoVeiculo.Motocicleta)
                     {
@@ -67,7 +71,6 @@ namespace EstacionamentoAlura.App.Modelos
                 }
 
             }
-
             if (procurado != null)
             {
                 this.Veiculos.Remove(procurado);
