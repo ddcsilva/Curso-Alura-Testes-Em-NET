@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Alura.Estacionamento.Modelos
 {
@@ -83,6 +84,15 @@ namespace Alura.Estacionamento.Modelos
             }
 
             return informacao;
+        }
+
+        public Veiculo PesquisaVeiculo(string placa)
+        {
+            var veiculoEncontrado = (from veiculo in this.Veiculos
+                                     where veiculo.Placa == placa
+                                     select veiculo).SingleOrDefault();
+
+            return veiculoEncontrado;
         }
     }
 }
