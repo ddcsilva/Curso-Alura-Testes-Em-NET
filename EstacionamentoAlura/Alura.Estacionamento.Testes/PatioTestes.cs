@@ -9,7 +9,7 @@ namespace Alura.Estacionamento.Testes
         // A - Act -> O método que será testado
         // A - Assert -> O resultado esperado
 
-        // Fact -> Teste com única condição
+        // Fact -> Testa um fato único
         // Theory -> Teste com parâmetros diferentes
 
         [Fact]
