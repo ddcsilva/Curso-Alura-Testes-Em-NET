@@ -5,6 +5,13 @@ namespace Alura.Estacionamento.Testes
 {
     public class PatioTestes
     {
+        // A - Arrange -> Preparar o cenário para o teste
+        // A - Act -> O método que será testado
+        // A - Assert -> O resultado esperado
+
+        // Fact -> Teste com única condição
+        // Theory -> Teste com parâmetros diferentes
+
         [Fact]
         public void ValidaFaturamento()
         {

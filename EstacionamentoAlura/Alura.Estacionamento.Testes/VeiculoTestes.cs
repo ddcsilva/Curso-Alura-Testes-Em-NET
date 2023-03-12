@@ -9,7 +9,8 @@ namespace Alura.Estacionamento.Testes
         // A - Act -> O método que será testado
         // A - Assert -> O resultado esperado
 
-        [Fact]
+        [Fact(DisplayName = "Teste nº 1")]
+        [Trait("Funcionalidade", "Acelerar")]
         public void TestaVeiculoAcelerar()
         {
             // Arrange
@@ -20,7 +21,8 @@ namespace Alura.Estacionamento.Testes
             Assert.Equal(100, veiculo.VelocidadeAtual);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Teste nº 2")]
+        [Trait("Funcionalidade", "Acelerar")]
         public void TestaVeiculoFrear()
         {
             // Arrange
@@ -29,6 +31,12 @@ namespace Alura.Estacionamento.Testes
             veiculo.Frear(10);
             // Assert
             Assert.Equal(-150, veiculo.VelocidadeAtual);
+        }
+
+        [Fact(DisplayName = "Teste nº 3", Skip = "Teste ainda não implementado. Ignorar")]
+        public void ValidaNomeProprietario()
+        {
+
         }
     }
 }
