@@ -33,7 +33,7 @@ namespace Alura.Estacionamento.Modelos
 
         public string RegistrarSaidaVeiculo(String placa)
         {
-            Veiculo procurado = null;
+            Veiculo veiculoARemover = null;
             string informacao = string.Empty;
 
             foreach (Veiculo veiculo in Veiculos)
@@ -45,11 +45,12 @@ namespace Alura.Estacionamento.Modelos
                     veiculo.HoraSaida = DateTime.Now;
                     TimeSpan tempoPermanencia = veiculo.HoraSaida - veiculo.HoraEntrada;
 
+                    /// O método Math.Ceiling(), aplica o conceito de teto da matemática onde o valor máximo é o inteiro imediatamente posterior a ele.
+                    /// Ex.: 0,9999 ou 0,0001 teto = 1
+                    /// Obs.: o conceito de chão é inverso e podemos utilizar Math.Floor();
+
                     if (veiculo.Tipo == TipoVeiculo.Automovel)
                     {
-                        /// O método Math.Ceiling(), aplica o conceito de teto da matemática onde o valor máximo é o inteiro imediatamente posterior a ele.
-                        /// Ex.: 0,9999 ou 0,0001 teto = 1
-                        /// Obs.: o conceito de chão é inverso e podemos utilizar Math.Floor();
                         valorASerCobrado = Math.Ceiling(tempoPermanencia.TotalHours) * 2;
                     }
 
@@ -65,15 +66,16 @@ namespace Alura.Estacionamento.Modelos
                         "Valor a pagar: {3:c}",
                         veiculo.HoraEntrada, veiculo.HoraSaida, new DateTime().Add(tempoPermanencia), valorASerCobrado);
 
-                    Faturado = Faturado + valorASerCobrado;
-                    procurado = veiculo;
+                    Faturado =+ valorASerCobrado;
+                    veiculoARemover = veiculo;
 
                     break;
                 }
             }
-            if (procurado != null)
+
+            if (veiculoARemover != null)
             {
-                Veiculos.Remove(procurado);
+                Veiculos.Remove(veiculoARemover);
             }
             else
             {
